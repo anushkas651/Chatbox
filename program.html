@@ -1,0 +1,132 @@
+# Chatbox
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> ChatBot </title>
+    <style>
+body{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height:100vh;
+    overflow: hidden;
+    position: relative;
+    background-color: rgb(229, 89, 241);
+}
+.box{
+    width: 560px;
+    height: 350px;
+    box-shadow: 5px 5px 20px rgb(0, 0, 0);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 20px;
+}
+.top{
+    width: 100%;
+    height: 80px;
+    background: rgb(247, 163, 85);
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+.top h1{
+    margin: 0;
+    font-size: 38px;
+    color: rgb(153, 15, 15);
+    text-align: center;
+    padding-top: 19px;
+    font-family: 'Brush Script MT', cursive;
+}
+.mid{
+    width: 100%;
+    height: 150px;
+    background: rgb(255, 144, 104);
+}
+.mid .chat{
+    width: 100%;
+}
+.mid .chat h2{
+    margin: 0;
+    font-size: 34px;
+    color: rgb(77, 49, 235);
+    padding:25px 24px;
+    text-align: center;
+    font-family: Copperplate, Papyrus, fantasy;
+}
+.mid .chat p{
+    margin: 0;
+    height: 30px;
+    font-size: 26px;
+    padding:8px 24px;
+    color: rgb(190, 29, 29);
+    
+    background-color: rgba(255, 1, 1, 0.233);
+    font-weight: 609;
+    font-family: Copperplate, Papyrus, fantasy;
+    letter-spacing: 0.004em;
+}
+.input{
+    height:100%;
+    width: 559px;
+    overflow: hidden;
+}
+.input input{
+    width: 559px;
+    height: 114px;
+    outline: black;
+    border: blanchedalmond;
+    padding-left: 30px;
+    padding: top 9px;;
+    font-family: Copperplate, Papyrus, fantasy;
+    font-size: 30px;
+    
+    background: rgba(243, 226, 78, 0.76);
+}
+    </style>
+</head>
+<body>
+
+    <div class="box">
+<div style="text-align: center;" class="top">
+    <h1>Hello Candidate &#128509 </h1>
+</div>
+<div class="mid">
+    <div class="chat">
+        
+        <h2>Answers shown below</h2>
+        <p id="chatLog">display screen</p>
+    </div>
+
+</div>
+    <div class="input">
+    <input type="text" id="userBox"onkeydown="if(event.keyCode == 13){ talk() }"placeholder="Please ask your question !">
+    </div>
+    </div>
+
+    <script>
+function talk(){
+    var know ={
+        "Hi":"Hello",
+        "hi":"Hello",
+        "Can you list top 4 the IT companies for me":"Yah sure !",
+        "can you list top 4 the IT companies for me":"Yah sure !",
+        "Service based":"TCS,Infosys,HCL,Wipro",
+        "Product based":"Amazon,Microsoft,Google,Facebook",
+        "information about it companies":"https://www.hindustantimes.com/brand-post/top-10-it-software-development-companies-in-india-2022-101637595792067.html",
+        "Thanks":"Welcome",
+        "thanks":"Welcome"
+    };
+    var user = document.getElementById('userBox').value;
+    document.getElementById('chatLog').innerHTML = user + "<br>";
+    if(user in know){
+        document.getElementById('chatLog').innerHTML = know[user] + "<br>";
+    }else{
+        document.getElementById('chatLog').innerHTML = "I do not understand .";
+    }
+}
+    </script>
+</body>
+</html>
